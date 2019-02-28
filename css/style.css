@@ -115,9 +115,9 @@ figure {
         margin-bottom: 1em; } }
     #colorlib-aside #colorlib-logo a {
       display: inline-block;
-      text-align: center;
+      text-align: right;
       color: #000;
-      letter-spacing: 10px; }
+      letter-spacing: 5px; }
   #colorlib-aside #colorlib-main-menu ul {
     text-align: right;
     margin: 0;
