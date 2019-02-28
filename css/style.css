@@ -1364,9 +1364,9 @@ article {
   cursor: pointer;
   text-decoration: none; }
   .colorlib-nav-toggle.active i::before, .colorlib-nav-toggle.active i::after {
-    background: #000; }
+    background: #fff; }
   .colorlib-nav-toggle.dark.active i::before, .colorlib-nav-toggle.dark.active i::after {
-    background: #000; }
+    background: #fff; }
   .colorlib-nav-toggle:hover, .colorlib-nav-toggle:focus, .colorlib-nav-toggle:active {
     outline: none;
     border-bottom: none !important; }
@@ -1378,11 +1378,11 @@ article {
     *display: inline;
     width: 30px;
     height: 2px;
-    color: #000;
+    color: #fff;
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
     text-indent: -55px;
-    background: #000;
+    background: #fff;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
@@ -1390,7 +1390,7 @@ article {
       content: '';
       width: 30px;
       height: 2px;
-      background: #000;
+      background: #fff;
       position: absolute;
       left: 0;
       -webkit-transition: 0.2s;
@@ -1398,8 +1398,8 @@ article {
       transition: 0.2s; }
   .colorlib-nav-toggle.dark i {
     position: relative;
-    color: #000;
-    background: #000;
+    color: #fff;
+    background: #fff;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
