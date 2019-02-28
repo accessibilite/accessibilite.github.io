@@ -780,7 +780,8 @@ article {
     article .desc h2 {
       font-size: 28px;
       margin-bottom: 20px;
-      font-weight: 300;
+       color: #ff6f61;
+        font-weight:400; 
        }
       article .desc h2 a {
         color: #ff6f61;
