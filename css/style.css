@@ -12,7 +12,7 @@
 *
 * ======================================================= */
 body {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
@@ -36,7 +36,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 400;
   margin: 0 0 30px 0;
   line-height: 1.3; }
@@ -51,7 +51,7 @@ figure {
     margin: 20px auto 0px auto;
     color: #b3b3b3;
     font-style: italic;
-    font-family: "Montserrat", Arial, sans-serif; }
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 480px) {
       figure figcaption {
         width: 100%; } }
@@ -109,7 +109,7 @@ figure {
     margin-bottom: 3em;
     display: block;
     width: 100%;
-    font-family: "Montserrat", Arial, sans-serif; }
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 768px) {
       #colorlib-aside #colorlib-logo {
         margin-bottom: 1em; } }
@@ -117,7 +117,7 @@ figure {
       display: inline-block;
       text-align: right;
       color: #2d355a;
-      letter-spacing: 5px; }
+       }
   #colorlib-aside #colorlib-main-menu ul {
     text-align: right;
     margin: 0;
@@ -132,13 +132,13 @@ figure {
       font-size: 12px;
       font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: 1px; }
+      }
       #colorlib-aside #colorlib-main-menu ul li a {
         color: #72694e;
         text-decoration: none;
         position: relative;
         padding: 10px 0;
-        font-family: "Montserrat", Arial, sans-serif;
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
@@ -190,7 +190,7 @@ figure {
     font-weight: 400;
     color: #a89e81;
     padding: 0 20px;
-    font-family: "Montserrat", Arial, sans-serif; }
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 768px) {
       #colorlib-aside .colorlib-footer {
         position: relative;
@@ -332,7 +332,6 @@ figure {
             display: inline-block;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             font-weight: 400;
             -webkit-border-radius: 30px;
             -moz-border-radius: 30px;
@@ -342,7 +341,7 @@ figure {
           margin: 0;
           padding: 0;
           color: white;
-          font-family: "Montserrat", Arial, sans-serif; }
+          font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 {
           margin-bottom: 20px;
           font-size: 44px;
@@ -358,7 +357,7 @@ figure {
           line-height: 1.5;
           margin-bottom: 30px;
           font-weight: 300;
-          font-family: "Montserrat", Arial, sans-serif; }
+          font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
           #colorlib-hero .flexslider .slider-text > .slider-text-inner h2 a {
             color: rgba(247, 89, 64, 0.8);
             border-bottom: 1px solid rgba(247, 89, 64, 0.7); }
@@ -376,7 +375,6 @@ figure {
         #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn {
           font-size: 12px;
           text-transform: uppercase;
-          letter-spacing: 2px;
           color: #fff;
           padding: 10px 20px !important;
           border: none;
@@ -481,9 +479,7 @@ body.offcanvas {
       padding: 20px;
       padding-top:60px; }
       .blog-entry .blog-img .desc h2 {
-        font-weight: 300;
-        letter-spacing: 3px;
-        font-size: 26px; }
+        font-weight: 300; }
         .blog-entry .blog-img .desc h2 a {
           color: #fff; }
       .blog-entry .blog-img .desc h2.head-article {
@@ -507,10 +503,8 @@ body.offcanvas {
         text-transform: uppercase;
         font-weight: 400;
         color: #fff;
-        letter-spacing: 2px;
         margin-bottom: 10px;
         font-size: 12px;
-        letter-spacing: 3px;
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
@@ -883,7 +877,7 @@ article {
       font-size: 12px;
       font-weight: 400;
       margin-bottom: 10px;
-      letter-spacing: 3px; }
+ }
       .colorlib-featured .desc .tag span {
         color: rgba(255, 255, 255, 0.9); }
 
@@ -924,7 +918,7 @@ article {
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 3px; }
+     }
 
 .blog-entry-sports {
   margin-bottom: 60px; }
@@ -1215,11 +1209,10 @@ article {
 .btn {
   margin-right: 4px;
   margin-bottom: 4px;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 1px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
