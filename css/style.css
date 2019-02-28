@@ -12,7 +12,7 @@
 *
 * ======================================================= */
 body {
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
@@ -260,7 +260,7 @@ figure {
           right: 0;
           bottom: 0;
           opacity: 0.9;
-            background: #f6a1a0;}
+            background: #ff6f61}
     #colorlib-hero .flexslider .flex-control-nav {
       bottom: 20px;
       z-index: 1000;
@@ -348,7 +348,7 @@ figure {
           line-height: 1.3;
           font-weight: 300; }
           #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 a {
-            color: #42413e; }
+            color: #fff; }
           @media screen and (max-width: 768px) {
             #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 {
               font-size: 28px; } }
@@ -371,7 +371,7 @@ figure {
           color: #fff; }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner p {
           font-size: 18px;
-          color: #42413e; }
+          color: #fff; }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn {
           font-size: 12px;
           text-transform: uppercase;
@@ -458,8 +458,9 @@ body.offcanvas {
       opacity: 0.9;
       content: '';
       z-index: -1;
-      background: #ff6f61;
+      background: #dfc2a0;
 }
+
     .blog-entry .blog-img .tag-holder {
       position: absolute;
       top: 10px;
@@ -481,7 +482,7 @@ body.offcanvas {
       .blog-entry .blog-img .desc h2 {
         font-weight: 300; }
         .blog-entry .blog-img .desc h2 a {
-          color: #fff; }
+          color: #42413e; }
       .blog-entry .blog-img .desc h2.head-article {
         position: relative;
         margin-bottom: 10px;
@@ -495,7 +496,7 @@ body.offcanvas {
           background: #fff;
           margin: 0 auto; }
       .blog-entry .blog-img .desc p {
-        color: #fff;
+        color: #42413e;
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
