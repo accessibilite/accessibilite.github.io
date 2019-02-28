@@ -134,7 +134,7 @@ figure {
       text-transform: uppercase;
       }
       #colorlib-aside #colorlib-main-menu ul li a {
-        color: #72694e;
+        color: #42413e;
         text-decoration: none;
         position: relative;
         padding: 10px 0;
@@ -185,7 +185,7 @@ figure {
     bottom: 40px;
     right: 1.5em;
     left: 1.5em;
-    font-size: 15px;
+    font-size: 10px;
     text-align: right;
     font-weight: 400;
     color: #a89e81;
@@ -781,9 +781,9 @@ article {
       font-size: 28px;
       margin-bottom: 20px;
       font-weight: 300;
-      text-transform: uppercase; }
+       }
       article .desc h2 a {
-        color: #000; }
+        color: #ff6f61; }
         article .desc h2 a:hover {
           color: #F75940; }
     article .desc .meta {
