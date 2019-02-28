@@ -12,7 +12,7 @@
 *
 * ======================================================= */
 body {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
@@ -36,7 +36,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 400;
   margin: 0 0 30px 0;
   line-height: 1.3; }
@@ -51,7 +51,7 @@ figure {
     margin: 20px auto 0px auto;
     color: #b3b3b3;
     font-style: italic;
-    font-family: "Montserrat", Arial, sans-serif; }
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 480px) {
       figure figcaption {
         width: 100%; } }
@@ -109,15 +109,15 @@ figure {
     margin-bottom: 3em;
     display: block;
     width: 100%;
-    font-family: "Montserrat", Arial, sans-serif; }
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 768px) {
       #colorlib-aside #colorlib-logo {
         margin-bottom: 1em; } }
     #colorlib-aside #colorlib-logo a {
       display: inline-block;
       text-align: right;
-      color: #000;
-      letter-spacing: 5px; }
+      color: #FF6F61;
+       }
   #colorlib-aside #colorlib-main-menu ul {
     text-align: right;
     margin: 0;
@@ -132,13 +132,13 @@ figure {
       font-size: 12px;
       font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: 1px; }
+      }
       #colorlib-aside #colorlib-main-menu ul li a {
-        color: rgba(0, 0, 0, 0.4);
+        color: #42413e;
         text-decoration: none;
         position: relative;
         padding: 10px 0;
-        font-family: "Montserrat", Arial, sans-serif;
+        font-family: Helvetica-Light,"Helvetica Light","Microsoft JhengHei",Arial,sans-serif;
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
@@ -163,7 +163,7 @@ figure {
           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         #colorlib-aside #colorlib-main-menu ul li a:hover {
           text-decoration: none;
-          color: black; }
+          color: #FF6F61; }
           #colorlib-aside #colorlib-main-menu ul li a:hover:after {
             visibility: visible;
             -webkit-transform: scaleX(1);
@@ -172,7 +172,7 @@ figure {
             -o-transform: scaleX(1);
             transform: scaleX(1); }
       #colorlib-aside #colorlib-main-menu ul li.colorlib-active a {
-        color: #000; }
+        color: #42413e; }
         #colorlib-aside #colorlib-main-menu ul li.colorlib-active a:after {
           visibility: visible;
           -webkit-transform: scaleX(1);
@@ -185,12 +185,12 @@ figure {
     bottom: 40px;
     right: 1.5em;
     left: 1.5em;
-    font-size: 15px;
+    font-size: 10px;
     text-align: right;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
+    color: #a89e81;
     padding: 0 20px;
-    font-family: "Montserrat", Arial, sans-serif; }
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 768px) {
       #colorlib-aside .colorlib-footer {
         position: relative;
@@ -211,7 +211,7 @@ figure {
           #colorlib-aside .colorlib-footer ul li a:hover, #colorlib-aside .colorlib-footer ul li a:active, #colorlib-aside .colorlib-footer ul li a:focus {
             text-decoration: none;
             outline: none;
-            color: #F75940; }
+            color: #ff6f61; }
 
 #colorlib-main {
   width: 80%;
@@ -260,13 +260,7 @@ figure {
           right: 0;
           bottom: 0;
           opacity: 0.9;
-            background: rgba(58, 57, 77, 1);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(58, 57, 77, 1)), color-stop(100%, rgba(13, 20, 41, 1)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: radial-gradient(ellipse at center, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%); }
+            background: #ff6f61}
     #colorlib-hero .flexslider .flex-control-nav {
       bottom: 20px;
       z-index: 1000;
@@ -338,7 +332,6 @@ figure {
             display: inline-block;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             font-weight: 400;
             -webkit-border-radius: 30px;
             -moz-border-radius: 30px;
@@ -348,14 +341,14 @@ figure {
           margin: 0;
           padding: 0;
           color: white;
-          font-family: "Montserrat", Arial, sans-serif; }
+          font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 {
           margin-bottom: 20px;
           font-size: 44px;
           line-height: 1.3;
           font-weight: 300; }
           #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 a {
-            color: white; }
+            color: #fff; }
           @media screen and (max-width: 768px) {
             #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 {
               font-size: 28px; } }
@@ -364,7 +357,7 @@ figure {
           line-height: 1.5;
           margin-bottom: 30px;
           font-weight: 300;
-          font-family: "Montserrat", Arial, sans-serif; }
+          font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
           #colorlib-hero .flexslider .slider-text > .slider-text-inner h2 a {
             color: rgba(247, 89, 64, 0.8);
             border-bottom: 1px solid rgba(247, 89, 64, 0.7); }
@@ -382,7 +375,6 @@ figure {
         #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn {
           font-size: 12px;
           text-transform: uppercase;
-          letter-spacing: 2px;
           color: #fff;
           padding: 10px 20px !important;
           border: none;
@@ -425,7 +417,7 @@ body.offcanvas {
   display: block; }
   @media screen and (max-width: 768px) {
     .colorlib-blog {
-      padding-top: 2em;
+      padding-top: 4em;
       padding-bottom: 8em; } }
 
 .content-wrap {
@@ -466,13 +458,9 @@ body.offcanvas {
       opacity: 0.9;
       content: '';
       z-index: -1;
-        background: rgba(58, 57, 77, 1);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(58, 57, 77, 1)), color-stop(100%, rgba(13, 20, 41, 1)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%);
-  background: radial-gradient(ellipse at center, rgba(58, 57, 77, 1) 0%, rgba(13, 20, 41, 1) 100%); }
+      background: #2d355a;
+}
+
     .blog-entry .blog-img .tag-holder {
       position: absolute;
       top: 10px;
@@ -492,9 +480,7 @@ body.offcanvas {
       padding: 20px;
       padding-top:60px; }
       .blog-entry .blog-img .desc h2 {
-        font-weight: 300;
-        letter-spacing: 3px;
-        font-size: 26px; }
+        font-weight: 300; }
         .blog-entry .blog-img .desc h2 a {
           color: #fff; }
       .blog-entry .blog-img .desc h2.head-article {
@@ -518,10 +504,8 @@ body.offcanvas {
         text-transform: uppercase;
         font-weight: 400;
         color: #fff;
-        letter-spacing: 2px;
         margin-bottom: 10px;
         font-size: 12px;
-        letter-spacing: 3px;
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
@@ -780,7 +764,6 @@ article {
     padding: 3em;
     width: 80%;
     float: right;
-    margin-top: -3em;
     z-index: 1;
     background: #fff;
     position: relative;
@@ -796,15 +779,16 @@ article {
     article .desc h2 {
       font-size: 28px;
       margin-bottom: 20px;
-      font-weight: 300;
-      text-transform: uppercase; }
+       color: #ff6f61;
+        font-weight:400; 
+       }
       article .desc h2 a {
-        color: #000; }
+        color: #ff6f61;
+        font-weight:400; }
         article .desc h2 a:hover {
           color: #F75940; }
     article .desc .meta {
       position: absolute;
-      top: 6em;
       left: -8em;
       text-align: right; }
       article .desc .meta span {
@@ -894,7 +878,7 @@ article {
       font-size: 12px;
       font-weight: 400;
       margin-bottom: 10px;
-      letter-spacing: 3px; }
+ }
       .colorlib-featured .desc .tag span {
         color: rgba(255, 255, 255, 0.9); }
 
@@ -935,7 +919,7 @@ article {
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 3px; }
+     }
 
 .blog-entry-sports {
   margin-bottom: 60px; }
@@ -1226,11 +1210,10 @@ article {
 .btn {
   margin-right: 4px;
   margin-bottom: 4px;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 1px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
@@ -1378,11 +1361,11 @@ article {
     *display: inline;
     width: 30px;
     height: 2px;
-    color: #fff;
+    color: #42413e;
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
     text-indent: -55px;
-    background: #fff;
+    background: #42413e;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
@@ -1390,7 +1373,7 @@ article {
       content: '';
       width: 30px;
       height: 2px;
-      background: #fff;
+      background: #42413e;
       position: absolute;
       left: 0;
       -webkit-transition: 0.2s;
