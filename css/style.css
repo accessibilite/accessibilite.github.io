@@ -458,7 +458,7 @@ body.offcanvas {
       opacity: 0.9;
       content: '';
       z-index: -1;
-      background: #dfc2a0;
+      background: #2d355a;
 }
 
     .blog-entry .blog-img .tag-holder {
@@ -482,7 +482,7 @@ body.offcanvas {
       .blog-entry .blog-img .desc h2 {
         font-weight: 300; }
         .blog-entry .blog-img .desc h2 a {
-          color: #42413e; }
+          color: #fff; }
       .blog-entry .blog-img .desc h2.head-article {
         position: relative;
         margin-bottom: 10px;
@@ -496,7 +496,7 @@ body.offcanvas {
           background: #fff;
           margin: 0 auto; }
       .blog-entry .blog-img .desc p {
-        color: #42413e;
+        color: #fff;
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
