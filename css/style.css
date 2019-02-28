@@ -467,12 +467,7 @@ body.offcanvas {
       content: '';
       z-index: -1;
             background: rgba(236, 120, 104, 1);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(236, 120, 104, 1) 0%, rgba(156, 49, 38, 1) 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(236, 120, 104, 1)), color-stop(100%, rgba(156, 49, 38, 1)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(236, 120, 104, 1) 0%, rgba(156, 49, 38, 1) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(236, 120, 104, 1) 0%, rgba(156, 49, 38, 1) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(236, 120, 104, 1) 0%, rgba(156, 49, 38, 1) 100%);
-  background: radial-gradient(ellipse at center, rgba(236, 120, 104, 1) 0%, rgba(156, 49, 38, 1) 100%); }
+}
     .blog-entry .blog-img .tag-holder {
       position: absolute;
       top: 10px;
