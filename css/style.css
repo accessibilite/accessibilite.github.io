@@ -138,7 +138,7 @@ figure {
         text-decoration: none;
         position: relative;
         padding: 10px 0;
-        font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+        font-family: Helvetica-Light,"Helvetica Light","Microsoft JhengHei",Arial,sans-serif;
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
@@ -163,7 +163,7 @@ figure {
           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         #colorlib-aside #colorlib-main-menu ul li a:hover {
           text-decoration: none;
-          color: black; }
+          color: #FF6F61; }
           #colorlib-aside #colorlib-main-menu ul li a:hover:after {
             visibility: visible;
             -webkit-transform: scaleX(1);
@@ -783,7 +783,8 @@ article {
       font-weight: 300;
        }
       article .desc h2 a {
-        color: #ff6f61; }
+        color: #ff6f61;
+        font-weight:400; }
         article .desc h2 a:hover {
           color: #F75940; }
     article .desc .meta {
