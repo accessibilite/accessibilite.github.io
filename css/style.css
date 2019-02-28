@@ -134,7 +134,7 @@ figure {
       text-transform: uppercase;
       }
       #colorlib-aside #colorlib-main-menu ul li a {
-        color: #42413e;
+        color: #7e874b;
         text-decoration: none;
         position: relative;
         padding: 10px 0;
@@ -163,7 +163,7 @@ figure {
           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         #colorlib-aside #colorlib-main-menu ul li a:hover {
           text-decoration: none;
-          color: #FF6F61; }
+          color: #2d355a; }
           #colorlib-aside #colorlib-main-menu ul li a:hover:after {
             visibility: visible;
             -webkit-transform: scaleX(1);
@@ -188,7 +188,7 @@ figure {
     font-size: 10px;
     text-align: right;
     font-weight: 400;
-    color: #a89e81;
+    color: #ffdc01;
     padding: 0 20px;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;  }
     @media screen and (max-width: 768px) {
