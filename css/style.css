@@ -764,7 +764,6 @@ article {
     padding: 3em;
     width: 80%;
     float: right;
-    margin-top: -3em;
     z-index: 1;
     background: #fff;
     position: relative;
@@ -790,7 +789,6 @@ article {
           color: #F75940; }
     article .desc .meta {
       position: absolute;
-      top: 6em;
       left: -8em;
       text-align: right; }
       article .desc .meta span {
