@@ -86,8 +86,8 @@ var app = new Vue({
           var map = document.getElementById("map")
           document.getElementById("map_card").style.display = "block";
           if (window.innerWidth > 500){
-            map.style.height = window.innerHeight / 3;
-            map.style.width = window.innerWidth / 2;
+            map.style.height = 400;
+            map.style.width = 600;
             map.position = "relative"
             map.style.left = map.style.left - 50;
           }
@@ -144,9 +144,10 @@ function generateMap(data) {
       //select svg file
       var svg = d3.select("svg.paris_ardt");
  
-      if (window.innerWidth > 500){
-        var height = window.innerHeight / 3;
-        var width = window.innerWidth / 2;
+      if (window.innerWidth > 800){
+        var height = 400;
+        var width = 600;
+ 
       }
       else {
         var height = window.innerHeight / 2.5;

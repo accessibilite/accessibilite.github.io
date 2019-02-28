@@ -38,6 +38,9 @@ button:active {
 
 }
 
+article .desc {
+    padding-bottom: 1em !important;
+}
 #education:hover, #politique:hover, #loisirs:hover, #sport:hover {
     background-color: #008CBA;
     color:#effbff;
@@ -152,7 +155,7 @@ button, input  {
 }
 
  #app {
-    padding-top:1em;
+    padding-top:0em;
     text-align: center;
  /*   margin-top: 20px;
     */
