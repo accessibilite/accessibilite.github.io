@@ -188,7 +188,7 @@ figure {
     font-size: 15px;
     text-align: right;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
+    color: #a89e81;
     padding: 0 20px;
     font-family: "Montserrat", Arial, sans-serif; }
     @media screen and (max-width: 768px) {
@@ -211,7 +211,7 @@ figure {
           #colorlib-aside .colorlib-footer ul li a:hover, #colorlib-aside .colorlib-footer ul li a:active, #colorlib-aside .colorlib-footer ul li a:focus {
             text-decoration: none;
             outline: none;
-            color: #F75940; }
+            color: #ff6f61; }
 
 #colorlib-main {
   width: 80%;
