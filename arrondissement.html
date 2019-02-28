@@ -19,6 +19,13 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	<script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <!--D3 geo projection extension -->
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -40,6 +47,7 @@
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/arrondissements/index.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -86,14 +94,78 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 												<span>29 février 2019</span>
 											</p>
 										</div>
-										<h2><a href="single.html">Le titre de l'article</a></h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur nibh at mi tempus, in aliquet dolor pellentesque. Praesent viverra ut sapien eu scelerisque. Mauris vitae hendrerit urna. Cras varius congue mollis. Aliquam efficitur dui in nunc gravida lacinia. Fusce elementum commodo elit, id maximus justo luctus et. Morbi mauris odio, euismod nec finibus in, tincidunt et est. Phasellus fermentum est non convallis porttitor. Vivamus a nibh laoreet, convallis ligula in, tristique metus. Aenean quam libero, molestie id aliquet vitae, vulputate eget tortor.
+										<h2><a href="single.html">Quel arrondissement est fait pour vous ?</a></h2>
+										<div class="intro" id="introPart">
+										<p>Nous sommes le {{ day }} {{ now.getDate() }} {{ month }} {{ now.getFullYear() }}. {{ intro }}
 										</p>
-										<p>
-											Mauris ornare ultrices libero ut finibus. Pellentesque pretium arcu id iaculis sodales. Duis et lectus maximus, mattis ex id, ultricies ligula. Cras vel tellus rutrum, convallis lectus in, imperdiet purus. Maecenas cursus, libero ac consequat feugiat, mauris neque tristique orci, sit amet finibus est turpis vitae enim. Vivamus sed diam a odio malesuada mollis.
+										<p>{{ introquestion }}
 										</p>
-										<p>Donec nibh ante, luctus eu posuere vel, gravida in eros. Vestibulum nisl odio, pharetra eget rhoncus quis, pharetra vitae neque. Sed pulvinar blandit enim, id suscipit libero mollis a.</p>
 									</div>
+									</div>
+									<div id="app" class="container desc" v-cloak>
+  
+										<main class="d-flex align-items-center justify-content-md-center row" v-cloak>
+										  <div class="toCenter">
+											<button v-if="current == -1" id="start" class="btn btn-lg btn-block choice start rounded" v-on:click="start()">C'est parti !</button>
+								  
+											<div id="card_question" class="card question" v-if="current < quiz.length && current >= 0">
+												<div class="card-header text-white bg-dark">{{ step.question }}</div>
+												
+												<button v-if="step.type == 'choice'" v-for="choice in step.choices" class="btn btn-lg btn-block choice rounded" v-on:click="submitButton(choice)">{{ choice }}</button>
+												<input  required="required" type="text" ref="textInput" v-if="step.type == 'text'" class="form-control" placeholder="Écrivez votre réponse" v-on:keyup.enter="submitText()">
+
+												<div v-if="step.type == 'select'" class="">
+									
+													<div class="row">
+													
+												
+														<button id="education" class="col-lg-3 col-sm-4 col-3" v-on:click="getSubChoices('education')">Education</button>
+														<button id="loisirs" class="col-lg-3 col-sm-4 col-3" v-on:click="getSubChoices('loisirs')">Culture</button>
+														<button id="sport"  class="col-lg-3 col-sm-4 col-3"v-on:click="getSubChoices('sport')">Sports</button>
+														<button class="col-lg-3 col-sm-4 col-3"id="politique" v-on:click="getSubChoices('politique')">Politique</button>
+							
+								  					</div>
+													  <div class="education item" v-for="(item, index) in step.items" v-if="item.type == 'Education'" >
+														<input type="checkbox" class="possibilities" v-bind:name="getInputInfo(index, 'name')"> 
+														<label for="getInputInfo(index, 'name')">{{ item.name }}</label>
+													  </div>
+												   
+													  <div class="politique item" v-for="(item, index) in step.items" v-if="item.type == 'Politique'" >
+														<input type="checkbox" class="possibilities" v-bind:name="getInputInfo(index, 'name')"> 
+														<label for="getInputInfo(index, 'name')">{{ item.name }}</label>
+													  </div>
+													
+													  <div class="loisirs item" v-for="(item, index) in step.items" v-if="item.type == 'Culture et loisirs'" >
+														<input type="checkbox" class="possibilities" v-bind:name="getInputInfo(index, 'name')"> 
+														<label for="getInputInfo(index, 'name')">{{ item.name }}</label>
+													  </div>
+													  <div class="sport item" v-for="(item, index) in step.items" v-if="item.type == 'Sport'" >
+														<input type="checkbox" class="possibilities" v-bind:name="getInputInfo(index, 'name')"> 
+														<label for="getInputInfo(index, 'name')">{{ item.name }}</label>
+													  </div>
+												</div>
+						
+												
+												<button class="btn btn-lg btn-block next" v-if="step.type == 'text'" v-on:click="submitText()">Prochaine question</button>
+												<button class="btn btn-lg btn-block next" v-if="step.type == 'select'" v-on:click="submitSelect()">Prochaine question</button>
+											</div>
+								  
+											<div class="card question" id="map_card" style="display: none;">
+											  <svg class="paris_ardt" id="map"></svg>
+											   <div id="tooltip" style="position: absolute; background-color: white;"></div>
+										   </div>
+								  
+											<div class="card question" v-if="current == quiz.length">
+												<h4 class="card-header text-white bg-dark">Bravo {{ reader.name }}, vous avez terminé !</h4>
+												<p class="card-text">Selon nos calculs, le {{ bestOne.num }}ème arrondissement est le plus adapté à votre handicap ({{ reader.handicap }}) et aux établissements dont vous avez le plus besoin (<span v-for="(place, index) in reader.places"><span v-if="index == reader.places.length - 1 && reader.places.length > 1"> et </span>{{ place }}<span v-if="index < reader.places.length - 2">, </span></span>).</p>
+												<p class="card-text" v-if="reader.handicap == 'moteur'">Le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement <span v-if="bestOne.ligne14 == 'NON'">ne bénéficie par contre pas </span><span v-if="bestOne.ligne14 == 'OUI'">bénéficie de plus </span>du passage de la ligne 14, qui est adaptée à votre handicap. Le tram <span v-if="bestOne.tram == 'OUI'">circule dans cet arrondissement.</span><span v-if="bestOne.tram == 'NON'">ne circule pas dans cet arrondissement.</span></p>
+												<button id="startOver" class="btn btn-lg btn-block next" v-on:click="startOver()">Et avec un autre handicap ?</button>
+											</div>
+								  
+										  </div>
+										</main>
+								  
+									  </div>
 								</article>
 								
 								
@@ -128,7 +200,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
-
+    <script src="js/vue.min.js"></script>
+    <script src="js/arrondissements/quiz.js"></script>
+    <script src="js/arrondissements/data.js"></script>
+    <script src="js/arrondissements/utilities.js"></script>
+    <script src="js/arrondissements/index.js"></script>
 	</body>
 </html>
 
