@@ -96,6 +96,9 @@ var app = new Vue({
             map.style.height = window.innerHeight / 2.5;
             map.style.width = window.innerWidth / 1.25;
           }
+          $('html, body').animate({
+            scrollTop: $("#title_page").offset().top
+        }, 100);
           generateMap(tab);
           var indexOfMaxValue = tab.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
           this.bestOne.num = indexOfMaxValue + 1;
@@ -118,7 +121,7 @@ var app = new Vue({
       this.bestOne = [];
       this.score = null;
 
-      window.scrollTo(0);
+    
       return this.quiz[1]
       
     },
@@ -183,7 +186,7 @@ function generateMap(data) {
 
         Tooltip
           .style("opacity", 1)
-          .html(d.properties.l_ar + ", avec une note de " + data[d.properties.c_ar - 1]);    
+          .html(d.properties.l_ar);    
       }
 
       var mousemove = function(d) {

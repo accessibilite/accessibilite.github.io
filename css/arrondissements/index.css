@@ -23,6 +23,23 @@ label {
     padding: 20px;
     border:grey 1px solid;
 }
+
+.legend {
+    font-size: 13px;
+    padding-bottom: 20px;
+}
+.noaccess  {
+    color:rgb(189, 215, 231);
+    margin-right: 10px;
+}
+.access4  {
+    color:rgb(8, 81, 156);
+    margin-right: 10px;
+}
+.access5  {
+    color:red;
+    margin-right: 10px;
+}
 .video_handicap {
     margin-top:30px;
     margin-bottom: 30px;
