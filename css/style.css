@@ -824,8 +824,7 @@ article {
       text-align: right; }
       article .desc .meta span {
         font-size: 13px;
-        display: block;
-        margin-bottom: 10px; }
+        display: block;}
         @media screen and (max-width: 768px) {
           article .desc .meta span {
             display: inline-block; } }
