@@ -15,21 +15,22 @@ function calculateBestOne(answers) {
     for (var i = 0; i < data_access.length; i++) {
         if (places_needed.indexOf(replaceSpec(data_access[i]["Type"])) >= 0){
           let num_arr = Number(data_access[i]["Arrondissement"]);
+          let population = Number(arrondissements[num_arr - 1].Population);
+          if (replaceSpec(data_access[i]["Type"]) == 'mairie') {
+            population = 1;
+          }
           let type = data_access[i]["Type"];
           if (handicap == "Handicaps multiples"){
-            score = calculateScore("Moteur", score, num_arr, i);
-            console.log(score);
-            score = calculateScore("Auditif", score, num_arr, i);
-            console.log(score);
-            score = calculateScore("Visuel", score, num_arr, i);
-            console.log(score);
+            score = calculateScore("Moteur", score, num_arr, i, population);
+            score = calculateScore("Auditif", score, num_arr, i, population);
+            score = calculateScore("Visuel", score, num_arr, i, population);
           }
           else {
-            score = calculateScore(handicap, score, num_arr, i)
+            score = calculateScore(handicap, score, num_arr, i, population);
           }
           if (score[num_arr - 1] > score_best) {
             score_best = score[num_arr - 1];
-            info_best[type] = []
+            info_best[type] = [];
             if (handicap != "Handicaps multiples"){
               let for_user = data_access[i][replaceSpec(handicap)];
               info_best[type].type3 = for_user["3"];
@@ -42,8 +43,9 @@ function calculateBestOne(answers) {
     return([score, info_best])
 }
 
-function calculateScore(handicap, score, num_arr, i){
+function calculateScore(handicap, score, num_arr, i, population){
   let for_user = data_access[i][replaceSpec(handicap)];
-  score[num_arr - 1] = score[num_arr - 1] + for_user["0"] * 0.1 + for_user["1"] * 2 + for_user["2"] * 3 + for_user["3"] * 4 + for_user["4"] * 4.5;
+  score[num_arr - 1] = Math.round((score[num_arr - 1] + (for_user["0"] / population) * 100 + (for_user["1"]/ population) * 2000 
+  + (for_user["2"]/ population) * 3000 + (for_user["3"]/ population) * 4500 + (for_user["4"]/ population) * 5000) * 100) / 100;
   return(score)
 }
