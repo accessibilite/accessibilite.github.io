@@ -216,7 +216,7 @@ figure {
           transform: scaleX(1); }
   #colorlib-aside .colorlib-footer {
     position: absolute;
-    bottom: 40px;
+    /* bottom: 40px; */
     right: 1.5em;
     left: 1.5em;
     font-size: 10px;
