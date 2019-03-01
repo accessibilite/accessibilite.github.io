@@ -12,7 +12,7 @@ var quiz = [
       question: "De quoi avez-vous besoin ?",
       type: "select",
       items: [
-        { type: 'Education', name:"Halte-Garderie" },
+        { type: 'Education', name:"Haltes-Garderies" },
         { type: 'Education', name:"Crèches" },
         { type: 'Education', name:"Écoles maternelles" },
         { type: 'Education', name:"Écoles élémentaires" },

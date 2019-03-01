@@ -6,7 +6,7 @@ var vm = new Vue({
     var months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
     return  {
       intro: "En 2015, il y a quatre ans, la ville de Paris s'est engagée à rendre accessible d'ici 2020 la quasi-totalité de ses établissements recevant du public aux personnes handicapés, soit environ 1 800 établissements en plus des 400 qui l'étaient déjà à l’époque.",
-      introquestion:"Qu’en est-il actuellement ? Dans quel arrondissement de Paris s'installer, lorsqu'on est atteint d'un handicap ? Trouvez celui qui est le plus adapté à vos besoins en répondant à quelques brèves questions (elles ne sont pas enregistrées)",
+      introquestion:"Qu’en est-il actuellement ? Dans quel arrondissement de Paris s'installer, lorsqu'on est atteint d'un handicap ? Trouvez celui qui est le plus adapté à vos besoins en répondant à quelques brèves questions (elles ne sont pas enregistrées).",
       now: now,
       day: days[now.getDay()],
       month: months[now.getMonth()]
@@ -38,7 +38,7 @@ var app = new Vue({
       for (var i = 0; i < allItems.length; i++) {
         let className = allItems[i].className.replace(" item", "")
         if (className == type) {
-          allItems[i].style.display == "block" ? allItems[i].style.display = "none" : allItems[i].style.display = "block"
+          allItems[i].style.display == "flex" ? allItems[i].style.display = "none" : allItems[i].style.display = "flex"
         }
         else
           allItems[i].style.display = "none";
@@ -143,11 +143,45 @@ function generateMap(data) {
 
       //select svg file
       var svg = d3.select("svg.paris_ardt");
+
+      var Tooltip = d3.select("#pop-up")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px")
+
+      // mouseover pop-up 
+      var mouseover = function(d) {
+          Tooltip
+            .style("opacity", 1)
+            .html(d.properties.l_ar, data[d.properties.c_ar - 1])
+          d3.select(this)
+            .style("stroke", "grey")
+            .style("opacity", 1)
+            .style("stroke-width", 3)
+        }
+      var mousemove = function(d) {
+        Tooltip
+          .style("left", (d3.mouse(this)[0]+7) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px")
+      }
+      var mouseleave = function(d) {
+        Tooltip
+          .style("opacity", 0)
+        d3.select(this)
+          .style("stroke", "white")
+          .style("opacity", 0.8)
+      }
+
+      // projection and path
  
-      if (window.innerWidth > 800){
-        var height = 400;
-        var width = 600;
- 
+      if (window.innerWidth > 500){
+        var height = window.innerHeight / 3;
+        var width = window.innerWidth / 2;
       }
       else {
         var height = window.innerHeight / 2.5;
@@ -165,13 +199,11 @@ function generateMap(data) {
           .data(paris.features)
           .enter()
           .append("path")
-              // .on("mouseover", function(d) {
-              //   d3.select("#tooltip")
-              //     .html(d.properties.l_ar, data[d.properties.c_ar - 1])
-              //     .style("left", d3.event.x + "px")
-              //     .style("top", d3.event.y + "px");
-              //   console.log(d.properties.l_ar, data[d.properties.c_ar - 1]);
-              // })
+          .attr("stroke", "white")
+          .attr("stroke-width", 2)
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemove)
+          .on("mouseleave", mouseleave)
               .style("stroke", "white")
               .style("stroke-width", "1px") 
               .attr("d", geoPath)

@@ -6,6 +6,12 @@
     display:none;
 } */
 
+label {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
 button { cursor:pointer; }
 button:active {
     outline: none;
@@ -25,6 +31,10 @@ button:active {
 
 .education, .politique, .loisirs, .sport {
     display:none;
+    
+    align-items: center;
+ 
+    position: relative;
 }
 
 #education, #politique, #loisirs, #sport {
@@ -47,7 +57,7 @@ article .desc {
 }
 
 .item {
-    margin: 10px;
+    /* margin: 10px; */
     text-align: left;
 }
 

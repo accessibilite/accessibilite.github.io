@@ -87,12 +87,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 						<div class="col-md-9">
 							<div class="content-wrap">
 								<article class="animate-box">
-									<div class="blog-img" style="background-image: url(images/blog-1.jpg);"></div>
+									<div class="blog-img" style="background-image: url(images/blog-1.png);"></div>
 									<div class="desc">
 										<div class="meta">
 											<p>
 												<span>29 février 2019</span>
-												<span>Les signatures</span>
+												<span>Camille Camdessus</span>
+												<span>David Pauget</span>
+												<span>Léa Sanchez</span>
+												<span>Aliénor Vinçotte</span>
+												<span>Yingke Zhao</span>
+							
 											</p>
 										</div>
 										<h2><a href="single.html">Quel arrondissement est fait pour vous ?</a></h2>
@@ -123,7 +128,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 														<button id="education" class="col-lg-3 col-sm-4 col-3" v-on:click="getSubChoices('education')">Education</button>
 														<button id="loisirs" class="col-lg-3 col-sm-4 col-3" v-on:click="getSubChoices('loisirs')">Culture</button>
 														<button id="sport"  class="col-lg-3 col-sm-4 col-3"v-on:click="getSubChoices('sport')">Sports</button>
-														<button class="col-lg-3 col-sm-4 col-3"id="politique" v-on:click="getSubChoices('politique')">Politique</button>
+														<button class="col-lg-3 col-sm-4 col-3"id="politique" v-on:click="getSubChoices('politique')">Arrondissement</button>
 							
 								  					</div>
 													  <div class="education item" v-for="(item, index) in step.items" v-if="item.type == 'Education'" >
