@@ -32,7 +32,7 @@ a {
     text-decoration: none !important; }
 
 p {
-  margin-bottom: 1.5em;  color: #000;}
+  margin-bottom: 1.5em;  color: #000;font-family: arial,sans-serif;}
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
@@ -42,10 +42,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3; }
 
 .frame {
-  border-top : 0.01em solid #ff6f61;
-  border-bottom : 0.01em solid #ff6f61;
+  border-top : 0.01em solid #b2bab6;
+  border-bottom : 0.01em solid #b2bab6;
   padding : 1em;
-  padding-left:3em;
   padding-right:3em;
   font-size:0.8em;
   color: #000;
