@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Megazine Template</title>
+	<title>Paris des accès</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -165,13 +165,40 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								  
 											<div class="card question" v-if="current == quiz.length">
 												<h4 class="card-header text-white bg-dark" v-if="!error">Bravo {{ reader.name }}, vous avez terminé !</h4>
-												<span class="card-text" v-if="error">{{ reader.name }}, merci d'avoir participé. {{ error }}</span>
-												<span class="card-text" v-if="!error">Selon nos calculs, le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement est le plus adapté à votre handicap ({{ reader.handicap }}) et aux établissements dont vous avez le plus besoin (<span v-for="(place, index) in reader.places"><span v-if="index == reader.places.length - 1 && reader.places.length > 1"> et </span>{{ place }}<span v-if="index < reader.places.length - 2">, </span></span>).</span>
-												<span class="card-text" v-if="reader.handicap == 'moteur' && !error">Le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement <span v-if="bestOne.ligne14 == 'NON'">ne bénéficie par contre pas </span><span v-if="bestOne.ligne14 == 'OUI'">bénéficie de plus </span>du passage de la ligne 14, qui est adaptée à votre handicap. Le tram <span v-if="bestOne.tram == 'OUI'">circule dans cet arrondissement.</span><span v-if="bestOne.tram == 'NON'">ne circule pas dans cet arrondissement.</span></span>
-												<button id="startOver" class="btn btn-lg btn-block next" v-on:click="startOver()" v-if="!error">Et avec un autre handicap ?</button>
-												<button id="comeBack" class="btn btn-lg btn-block next" v-on:click="comeBack()" v-if="error">Revenir à l'étape précédente</button>
+												<div class="card-text" v-if="error">{{ reader.name }}, merci d'avoir participé. {{ error }}</div>
+												<div class="result" v-if="!error">Selon nos calculs, le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement est le plus adapté à votre handicap ({{ reader.handicap }}) et aux établissements dont vous avez le plus besoin (<span v-for="(place, index) in reader.places"><span v-if="index == reader.places.length - 1 && reader.places.length > 1"> et </span>{{ place }}<span v-if="index < reader.places.length - 2">, </span></span>).</div>
+												<div class="result" v-if="reader.handicap == 'moteur' && !error">Le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement <span v-if="bestOne.ligne14 == 'NON'">ne bénéficie par contre pas </span><span v-if="bestOne.ligne14 == 'OUI'">bénéficie de plus </span>du passage de la ligne 14, qui est adaptée à votre handicap. Le tram <span v-if="bestOne.tram == 'OUI'">circule dans cet arrondissement.</span><span v-if="bestOne.tram == 'NON'">ne circule pas dans cet arrondissement.</span></div>
+												<div class="video_handicap" v-if="!error">
+													
+													<div><span>Découvrez le témoignage d'une personne <span v-if="reader.handicap == 'visuel'">malvoyante et sourde</span><span v-if="reader.handicap == 'moteur'">handicapée moteur</span><span v-if="reader.handicap == 'auditif'">malentendante</span>.</span></div>
+												
+														<iframe v-if="reader.handicap == 'visuel' && !error"  frameborder="0" width="270" height="480" src="https://www.dailymotion.com/embed/video/x739n0a" allowfullscreen></iframe>
+												
+														<iframe v-if="reader.handicap == 'moteur' && !error" frameborder="0" width="270" height="480" src="https://www.dailymotion.com/embed/video/x739oiz?autoPlay=1" allowfullscreen=""></iframe>
+												</div>
+				
+												<div class="article_handicap" v-if="!error"> 
+													<h3 class="title_handicap">Handicap : où en est l’accessibilité des lieux publics à Paris ?</h3>
+													<div class="subtitle_handicap"><strong>En 2015, la Ville de Paris s'est engagée à rendre accessible aux personnes en situation de handicap la quasi-totalité de ses établissements recevant du public (ERP) d'ici 2020. Où en est-on, à un an de l’échéance ?</strong></div>
+													<div class="text_handicap">A Paris, comme dans les autres villes en France, l'accessibilité des établissements recevant du public (ERP) aux personnes en situation de handicap se fait encore attendre. En 2015, la Ville de Paris s'est engagée à rendre accessible aux personnes handicapées d'ici 2020 <i>« la quasi-totalité de ses établissements recevant du public »</i>, au nombre de 2700 (écoles, bibliothèques, crèches,  jardins, etc.), grâce à un investissement de 200 millions d'euros sur la période 2014-2020, <i>« trois fois supérieure à la mandature précédente »</i>.</div>
+													<div class="text_handicap"><i>« Clairement, on accumule du retard »</i>, regrette Matthieu Annereau, président de l’Association pour la prise en compte du handicap dans les politiques publiques et privées (APHPP).  <i>« Certains lieux sont toujours inaccessibles : des marches, des pentes violentes pour les personnes à mobilité réduite ; un manque de signalisation, une absence de braille ou de synthèse vocale dans les ascenseurs pour les personnes déficientes visuelles ; et un problème de signalétique manquante pour les personnes déficientes mentales »</i>, énumère-t-il.</div>
+													<div class="text_handicap"><strong>L’accessibilité pour 2018, 2021, voire 2024</strong></div>
+													<div class="text_handicap">La « loi Handicap » de 2005 avait fixé la date butoir à 2015 pour l’accessibilité des lieux publics. En 2015, face au retard sur le respect de la législation, les délais ont été repoussés par le Parlement de 3, 6 et 9 ans. Soit 2018, 2021 et 2024 pour les différents types ERP, qui ont dû s’engager sur un <i>« agenda d'accessibilité programmé »</i> <span href="https://www.ecologique-solidaire.gouv.fr/ladap-agenda-daccessibilite-programmee">(Ad'ap)</span>.</div>
+													<div class="text_handicap">Plus précisément, le délai de mise en conformité a été fixé à 3 ans (2018) pour les établissements ayant une capacité d'accueil de 200 personnes (80% des établissements). Les lieux de capacité supérieure ou <i>« en difficulté financière avérée »</i> ont bénéficié de délais rallongés de 6 à 9 ans (2021 et 2024). Quant aux transports, les délais maximums ont été fixés à trois ans pour transports urbains, six ans pour les transports interurbains, et neuf ans pour le ferroviaire.</div>
+													<div class="text_handicap"><i>« Le neuf ne pose pas de problème sur l’accessibilité, il n’y a pas, ou très peu, de dérogation. La difficulté, c’est sur l’ancien : on est sur du bâti, on ne peut pas repousser les murs »</i>, explique l’architecte Nicolas Mayeur. <i>« Les grands établissements, les grands magasins sont accessibles à Paris.  Mais la mise en accessibilité est compliquée pour les petits restaurants ou cinémas. Également pour les bâtiments historiques, qui sont classés »</i>, précise-t-il.</div>
+													<div class="text_handicap"><strong>Seules 9 stations de métro sur 303 accessibles à Paris</strong></div>
+													<div class="text_handicap">Un lieu est particulièrement inaccessible à Paris : le métro. Seules les 9 stations de la ligne 14 sont accessibles aux personnes handicapées, soit 3% du réseau de la capitale. A titre de comparaison, 18% du réseau de métro à Londres est accessible, 82% à Barcelone et 88% à Tokyo, selon APF France Handicap.</div>
+													<div class="text_handicap"><i>« C’est important d’avoir certains ERP accessibles, comme les musées, les écoles, mais si la chaîne de mobilité les rend difficilement accessible, il y a une incohérence »</i>, souligne Matthieu Annereau. <i>« Certains bus sont encore inaccessibles, et certains taxis refusent de prendre ceux avec des chiens pour aveugles »</i>, ajoute-t-il.</div>
+													<div class="text_handicap"><strong>« L’administration fait de plus en plus d’efforts »</strong></div>
+													<div class="text_handicap"><i>« Notre gros problème est de faire comprendre que quand on parle d'accessibilité, ce n’est pas que le handicap moteur »</i>, explique de son côté Bruno Le Maire, vice-président de l’Unapei (Union nationale des associations de parents, de personnes handicapées mentales, et de leurs amis). Sur le sujet de l’accessibilité des ERP, le handicap mental est en effet généralement moins abordé, et ne figure pas par exemple sur les <span href="https://opendata.paris.fr/explore/dataset/accessibilite_des_equipements_de_la_ville_de_paris/information/">données de la Ville de Paris</span> sur l’accessibilité des équipements. <i>« Il y a des solutions comme le « facile à lire et à comprendre », les pictogrammes »</i>, souligne Bruno Le Maire.</div>
+													<div class="text_handicap">Si l’accessibilité totale se fait attendre, l’évolution est positive selon les responsables associatifs.<i>« L’administration fait de plus en plus d’efforts, le personnel est plus sensibilisé. L’accueil est plus agréable. On le voit de plus en plus, même les services publics, avec la Poste, la SNCF, la RATP »</i> déclare Bruno Le Maire.</div>
+													<div class="text_handicap">En juillet dernier, la Ville de Paris a lancé le site handicap.paris.fr, un outil d’information et d’accès aux droits et aux services pour les personnes en situation de handicap. Le Conseil de Paris a aussi précisé que 2 220 équipements et plus de 400 installations ouvertes au public seront mis en accessibilité d’ici 2024.</div>
+												</div>
+
+								
+												<button id="startOver" class="btn btn-lg btn-block next" v-on:click="startOver()" v-if="current == quiz.length && !error">Et avec un autre handicap ?</button>
+												<button id="comeBack" class="btn btn-lg btn-block next" v-on:click="comeBack()" v-if="current == quiz.length && error">Revenir à l'étape précédente</button>
 											</div>
-								  
 										  </div>
 										</main>
 								  

@@ -104,13 +104,14 @@ var app = new Vue({
           this.bestOne.densite = arrondissements[indexOfMaxValue]['Densité/pop'];
           this.bestOne.superficie = arrondissements[indexOfMaxValue]['Superficie (km2)'];
           this.bestOne.tram = arrondissements[indexOfMaxValue]['Tram'];
+          // this.article.title = "Handicap : où en est l’accessibilité des lieux publics à Paris ?" 
+          // this.article.chapo = "En 2015, la Ville de Paris s'est engagée à rendre accessible aux personnes en situation de handicap la quasi-totalité de ses établissements recevant du public (ERP) d'ici 2020. Où en est-on, à un an de l’échéance ?"
         }
     },
     startOver(){
       var el = document.getElementById("tooltip");
       if (el)
         el.style.display = "none" ;
-      console.log("here6");
       let name = this.answers[0];
       this.current = 1;
       this.answers = [name];
@@ -182,11 +183,7 @@ function generateMap(data) {
 
         Tooltip
           .style("opacity", 1)
-          .html(d.properties.l_ar + ", avec une note de " + data[d.properties.c_ar - 1]);
-        // d3.select(this)
-          // .style("stroke", "grey")
-          // .style("opacity", 1)
-          // .style("stroke-width", 1.5)     
+          .html(d.properties.l_ar + ", avec une note de " + data[d.properties.c_ar - 1]);    
       }
 
       var mousemove = function(d) {
@@ -195,31 +192,30 @@ function generateMap(data) {
         .duration(100);
 
         Tooltip
-          // .html(d.properties.l_ar, data[d.properties.c_ar - 1])
           .style("left", (d3.mouse(this)[0]+7) + "px")
           .style("top", (d3.mouse(this)[1]) + "px")
           
       }
 
-      var mouseleave = function(d, i) {
-        console.log("out");
-        console.log(d, i)
-        //  d3.select(".tooltip").remove();
-        // .attr('opacity', function (d, j) {
+      // var mouseleave = function(d, i) {
+      //   console.log("out");
+      //   console.log(d, i)
+      //   //  d3.select(".tooltip").remove();
+      //   // .attr('opacity', function (d, j) {
          
-        //   return j == i ? 1 : 0;
-        // })
-        // console.log(d)
-        // d3.select(this)
-        // .transition()
-        // .duration(100);
+      //   //   return j == i ? 1 : 0;
+      //   // })
+      //   // console.log(d)
+      //   // d3.select(this)
+      //   // .transition()
+      //   // .duration(100);
         
-        // Tooltip
-        //   .style("opacity", 0)
-        // d3.select(this)
-        //   .style("stroke", "white")
-        //   .style("opacity", 1)
-      }
+      //   // Tooltip
+      //   //   .style("opacity", 0)
+      //   // d3.select(this)
+      //   //   .style("stroke", "white")
+      //   //   .style("opacity", 1)
+      // }
 
       // projection and path
  
@@ -246,7 +242,7 @@ function generateMap(data) {
           .append("path")
           .on('mouseover',mouseover)
           .on("mousemove", mousemove)
-          .on("mouseout", mouseleave)
+          // .on("mouseout", mouseleave)
           .attr("stroke", "white")
           .attr("stroke-width", 1.5)
               .style("stroke", "white")

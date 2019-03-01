@@ -18,6 +18,29 @@ label {
         outline-offset: -10px;
 }
 
+.video_handicap {
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+
+iframe {
+    margin-top: 30px;
+}
+
+.text_handicap {
+    margin-top: 30px;
+   
+}
+.result  {
+    text-align: left;
+} 
+
+.title_handicap {
+    text-align: center;
+}
+.article_handicap {
+    text-align: left;
+}
 
 button { cursor:pointer; }
 button:active {
@@ -143,7 +166,7 @@ input {
     margin-top: 30px;
 }
 .next {
-    margin-top:20px; 
+    margin-top:30px; 
     background-color: #e7e7e7; 
     color: #222731;
     width:100%
