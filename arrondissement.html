@@ -61,7 +61,7 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="index.html">Paris accessible</a></h1>
+			<h1 id="colorlib-logo"><a href="index.html">Paris des accès</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li class="colorlib-active"><a href="index.html">Accueil</a></li>
@@ -99,7 +99,7 @@
 							
 											</p>
 										</div>
-										<h2>Quel arrondissement est fait pour vous ?</h2>
+										<h2 id="title_page">Quel arrondissement est fait pour vous ?</h2>
 										<div class="intro" id="introPart">
 										<div>Nous sommes le {{ day }} {{ now.getDate() }} {{ month }} {{ now.getFullYear() }}. {{ intro }}
 										</div>
@@ -169,7 +169,9 @@
 												<div class="result" v-if="reader.handicap == 'moteur' && !error">Le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement <span v-if="bestOne.ligne14 == 'NON'">ne bénéficie par contre pas </span><span v-if="bestOne.ligne14 == 'OUI'">bénéficie de plus </span>du passage de la ligne 14, qui est adaptée à votre handicap. Le tram <span v-if="bestOne.tram == 'OUI'">circule dans cet arrondissement.</span><span v-if="bestOne.tram == 'NON'">ne circule pas dans cet arrondissement.</span></div>
 												<div class="video_handicap" v-if="!error && reader.handicap != 'handicaps multiples'">
 													
-													<div><span>Découvrez le témoignage d'une personne <span v-if="reader.handicap == 'visuel'">malvoyante et sourde</span><span v-if="reader.handicap == 'moteur'">handicapée moteur</span><span v-if="reader.handicap == 'auditif'">malentendante</span>.</span></div>
+													<div><span>Découvrez le témoignage d'une personne <span v-if="reader.handicap == 'visuel'">malvoyante et sourde</span><span v-if="reader.handicap == 'moteur'">handicapée moteur</span><span v-if="reader.handicap == 'auditif'">sourde</span>.</span></div>
+
+														<iframe v-if="reader.handicap == 'auditif' && !error" frameborder="0" width="270" height="480" src="https://www.dailymotion.com/embed/video/x73a2qo" allowfullscreen=""></iframe>
 												
 														<iframe v-if="reader.handicap == 'visuel' && !error"  frameborder="0" width="270" height="480" src="https://www.dailymotion.com/embed/video/x739n0a" allowfullscreen></iframe>
 												
@@ -197,6 +199,16 @@
 								
 												<button id="startOver" class="btn btn-lg btn-block next" v-on:click="startOver()" v-if="current == quiz.length && !error">Et avec un autre handicap ?</button>
 												<button id="comeBack" class="btn btn-lg btn-block next" v-on:click="comeBack()" v-if="current == quiz.length && error">Revenir à l'étape précédente</button>
+
+												<div class="article_handicap methodo"> 
+													<div class="text_handicap"><strong>Encadré méthodologie</strong></div>
+													<div class="text_handicap">Le 2 août 2013 la Mairie de Paris a publié des données évaluant le niveau d’accessibilité de plus de 2200 équipements publics dans tous les arrondissements de la capitale. L’accessibilité de ces lieux administratifs, culturels, sportifs et d’éducation est exprimée sur une échelle variant de 0 (non accessible) à 4 (accessibilité totale pour le public et les employés), dans un document mis à jour le 13 mai 2017.</div>
+													<div class="text_handicap">Ces statistiques ont été traitées dans une base de données qui nous a permis de dresser un palmarès des arrondissements accessibles en fonction des besoin de l’utilisateur : quel est son handicap? de quoi a t-il besoin près de chez lui, une crèche ou un jardin ?</div>
+													<div class="text_handicap">Afin d’être aussi justes que possible, nous avons rapporté le nombre d'établissements à la population des arrondissements parisiens. Le calcul est disponible en libre accès sur notre compte <span href="https://github.com/accessibilite/accessibilite.github.io">Github</span>.</div>
+													<div class="text_handicap">L’utilisateur voit ensuite apparaître une carte personnalisée des arrondissements parisiens, hierarchisés par couleur en fonctions de leur compatibilité avec ses choix exprimés : plus la couleur est foncée, plus l’arrondissement est adapté aux choix de l’utilisateur, avec en rouge l’arrondissement le plus compatible. </div>
+
+													</div>
+												</div>
 											</div>
 										  </div>
 										</main>

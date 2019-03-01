@@ -56,7 +56,6 @@ var app = new Vue({
       this.answers.push(answer);
       this.current++;
       this.reader.handicap = answer.toLowerCase();
-      console.log(this.reader.handicap)
     },
     submitText: function submitText () {
       var answer = this.$refs.textInput.value;
@@ -105,8 +104,6 @@ var app = new Vue({
           this.bestOne.densite = arrondissements[indexOfMaxValue]['Densité/pop'];
           this.bestOne.superficie = arrondissements[indexOfMaxValue]['Superficie (km2)'];
           this.bestOne.tram = arrondissements[indexOfMaxValue]['Tram'];
-          // this.article.title = "Handicap : où en est l’accessibilité des lieux publics à Paris ?" 
-          // this.article.chapo = "En 2015, la Ville de Paris s'est engagée à rendre accessible aux personnes en situation de handicap la quasi-totalité de ses établissements recevant du public (ERP) d'ici 2020. Où en est-on, à un an de l’échéance ?"
         }
     },
     startOver(){
@@ -120,6 +117,8 @@ var app = new Vue({
       this.reader.name = name;
       this.bestOne = [];
       this.score = null;
+
+      window.scrollTo(0);
       return this.quiz[1]
       
     },

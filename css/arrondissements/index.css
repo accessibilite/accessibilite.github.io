@@ -18,6 +18,11 @@ label {
         outline-offset: -10px;
 }
 
+.methodo  {
+    margin-top: 30px;
+    padding: 20px;
+    border:grey 1px solid;
+}
 .video_handicap {
     margin-top:30px;
     margin-bottom: 30px;
