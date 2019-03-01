@@ -81,7 +81,6 @@ var app = new Vue({
         }
         this.answers.push(checked);
         this.current++;
-        console.log(checked.length)
         if (checked.length == 0 && this.current == this.quiz.length) {
           this.error = "Mais nous aurions besoin que vous renseigniez au moins un lieu dont vous avez besoin. Sans cette indication, difficile pour nous de déterminer quel arrondissement correspond le mieux à vos besoins."
         }
@@ -90,7 +89,7 @@ var app = new Vue({
           var tab = results[0]
           var map = document.getElementById("map")
           document.getElementById("map_card").style.display = "block";
-          if (window.innerWidth > 500){
+          if (window.innerWidth > 800){
             map.style.height = 400;
             map.style.width = 600;
             map.position = "relative"
@@ -142,7 +141,7 @@ var app = new Vue({
 
 
 function generateMap(data) {
-
+  console.log(data)
   d3.queue()
       .defer(d3.json, "js/arrondissements/ardt.json")
       .await(ready);
@@ -164,7 +163,7 @@ function generateMap(data) {
       //select svg file
       var svg = d3.select("svg.paris_ardt");
 
-      var Tooltip = d3.select("#pop-up")
+      var Tooltip = d3.select("#map_card")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")
@@ -172,36 +171,77 @@ function generateMap(data) {
         .style("border", "solid")
         .style("border-width", "2px")
         .style("border-radius", "5px")
-        .style("padding", "5px")
+        .style("padding", "5px");
 
+      
       // mouseover pop-up 
       var mouseover = function(d) {
-          Tooltip
-            .style("opacity", 1)
-            .html(d.properties.l_ar, data[d.properties.c_ar - 1])
-          d3.select(this)
-            .style("stroke", "grey")
-            .style("opacity", 1)
-            .style("stroke-width", 3)
-        }
-      var mousemove = function(d) {
+        // console.log(data[d.properties.c_ar - 1]);
+
+        d3.select(this)
+        .transition()
+        .duration(100)
+   
+
         Tooltip
+          .style("opacity", 1)
+          .html(d.properties.l_ar + ", avec une note de " + data[d.properties.c_ar - 1]);
+        // d3.select(this)
+          // .style("stroke", "grey")
+          // .style("opacity", 1)
+          // .style("stroke-width", 1.5)     
+      }
+
+      var mousemove = function(d) {
+        d3.select(this)
+        .transition()
+        .duration(100);
+
+        Tooltip
+          // .html(d.properties.l_ar, data[d.properties.c_ar - 1])
           .style("left", (d3.mouse(this)[0]+7) + "px")
           .style("top", (d3.mouse(this)[1]) + "px")
+          
       }
-      var mouseleave = function(d) {
-        Tooltip
-          .style("opacity", 0)
-        d3.select(this)
-          .style("stroke", "white")
-          .style("opacity", 0.8)
+
+      // var mouseEnter = function(d) {
+      //   d3.select(this)
+      //   .transition()
+      //   .duration(100);
+
+      //   Tooltip
+      //     // .html(d.properties.l_ar, data[d.properties.c_ar - 1])
+      //     .style("left", (d3.mouse(this)[0]+7) + "px")
+      //     .style("top", (d3.mouse(this)[1]) + "px")
+          
+      // }
+
+
+      var mouseleave = function(d, i) {
+        console.log("out");
+         console.log(d, i)
+        // .attr('opacity', function (d, j) {
+         
+        //   return j == i ? 1 : 0;
+        // })
+        // console.log(d)
+        // d3.select(this)
+        // .transition()
+        // .duration(100);
+        
+        // Tooltip
+       
+          // .style("opacity", 0)
+        // d3.select(this)
+        //   .style("stroke", "white")
+        //   .style("opacity", 1)
       }
 
       // projection and path
  
-      if (window.innerWidth > 500){
-        var height = window.innerHeight / 3;
-        var width = window.innerWidth / 2;
+      if (window.innerWidth > 800){
+        var height = 400;
+        var width = 600;
       }
       else {
         var height = window.innerHeight / 2.5;
@@ -216,17 +256,15 @@ function generateMap(data) {
           .projection(projection);
 
       svg.selectAll("path")
+          
           .data(paris.features)
           .enter()
           .append("path")
           .attr("stroke", "white")
-          .attr("stroke-width", 2)
-          .on("mouseover", mouseover)
-          .on("mousemove", mousemove)
-          .on("mouseleave", mouseleave)
+          .attr("stroke-width", 1.5)
               .style("stroke", "white")
-              .style("stroke-width", "1px") 
               .attr("d", geoPath)
+              .attr("class", "contours")
               .attr("fill", function(d) {
                   let arrondissement = d.properties.c_ar;
                   let nb = data[arrondissement - 1];
@@ -235,8 +273,21 @@ function generateMap(data) {
                   }
                   else
                     return colorScale(nb);
-              });
+              })
+              // .on("mouseout", mouseleave)
+              .on('mouseover',mouseover)
+              .on("mousemove", mousemove)
+       
+        
+      // svg.select("#map")
+      // // .on("mouseover", mouseover)
+      // // .on("mousemove", mousemove)
+      // .on("mouseleave", mouseleave);
+      
+  
+    
 
+      
       let index = data.indexOf(max);
       // d3.select("h2").html("Le meilleur arrondissement pour vous est le " + (index + 1) + "e arrondissement");
   }

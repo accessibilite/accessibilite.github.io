@@ -11,6 +11,13 @@ label {
     margin-top: 10px;
 }
 
+.outlined:hover{
+        outline-color: rgb(0, 0, 255);;
+        outline-style: solid;
+        outline-width: 10px;
+        outline-offset: -10px;
+}
+
 
 button { cursor:pointer; }
 button:active {
