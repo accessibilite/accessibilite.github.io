@@ -53,13 +53,11 @@ var app = new Vue({
       
     },
     submitButton: function submitButton (answer) {
-      console.log("here2")
       this.answers.push(answer);
       this.current++;
       this.reader.handicap = answer.toLowerCase();
     },
     submitText: function submitText () {
-      console.log("here3")
       var answer = this.$refs.textInput.value;
       if (answer != ""){
         this.answers.push(answer);
@@ -68,7 +66,6 @@ var app = new Vue({
       }
     },
     submitSelect: function submitSelect() {
-      console.log("here4")
         var possibilities = document.querySelectorAll(".possibilities");
         var checked = [];
         this.reader.places = [];
@@ -110,7 +107,10 @@ var app = new Vue({
         }
     },
     startOver(){
-      console.log("here5")
+      var el = document.getElementById("tooltip");
+      if (el)
+        el.style.display = "none" ;
+      console.log("here6");
       let name = this.answers[0];
       this.current = 1;
       this.answers = [name];
@@ -122,7 +122,9 @@ var app = new Vue({
       
     },
     comeBack(){
-      console.log("here6")
+      var el = document.getElementById("tooltip");
+      if (el)
+        el.style.display = "none" ;
       let name = this.answers[0];
       let handicap = this.answers[1];
       this.current = 2;
@@ -141,7 +143,6 @@ var app = new Vue({
 
 
 function generateMap(data) {
-  console.log(data)
   d3.queue()
       .defer(d3.json, "js/arrondissements/ardt.json")
       .await(ready);
@@ -167,21 +168,17 @@ function generateMap(data) {
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")
+        .attr("id", "tooltip")
         .style("background-color", "white")
         .style("border", "solid")
         .style("border-width", "2px")
         .style("border-radius", "5px")
         .style("padding", "5px");
 
-      
-      // mouseover pop-up 
       var mouseover = function(d) {
-        // console.log(data[d.properties.c_ar - 1]);
-
         d3.select(this)
         .transition()
         .duration(100)
-   
 
         Tooltip
           .style("opacity", 1)
@@ -204,22 +201,10 @@ function generateMap(data) {
           
       }
 
-      // var mouseEnter = function(d) {
-      //   d3.select(this)
-      //   .transition()
-      //   .duration(100);
-
-      //   Tooltip
-      //     // .html(d.properties.l_ar, data[d.properties.c_ar - 1])
-      //     .style("left", (d3.mouse(this)[0]+7) + "px")
-      //     .style("top", (d3.mouse(this)[1]) + "px")
-          
-      // }
-
-
       var mouseleave = function(d, i) {
         console.log("out");
-         console.log(d, i)
+        console.log(d, i)
+        //  d3.select(".tooltip").remove();
         // .attr('opacity', function (d, j) {
          
         //   return j == i ? 1 : 0;
@@ -230,8 +215,7 @@ function generateMap(data) {
         // .duration(100);
         
         // Tooltip
-       
-          // .style("opacity", 0)
+        //   .style("opacity", 0)
         // d3.select(this)
         //   .style("stroke", "white")
         //   .style("opacity", 1)
@@ -260,6 +244,9 @@ function generateMap(data) {
           .data(paris.features)
           .enter()
           .append("path")
+          .on('mouseover',mouseover)
+          .on("mousemove", mousemove)
+          .on("mouseout", mouseleave)
           .attr("stroke", "white")
           .attr("stroke-width", 1.5)
               .style("stroke", "white")
@@ -273,17 +260,13 @@ function generateMap(data) {
                   }
                   else
                     return colorScale(nb);
-              })
+              });
               // .on("mouseout", mouseleave)
-              .on('mouseover',mouseover)
-              .on("mousemove", mousemove)
+              
+              // .on("mouseleave", mouseleave);
        
         
-      // svg.select("#map")
-      // // .on("mouseover", mouseover)
-      // // .on("mousemove", mousemove)
-      // .on("mouseleave", mouseleave);
-      
+   
   
     
 
