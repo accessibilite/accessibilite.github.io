@@ -36,6 +36,7 @@ iframe {
 } 
 
 .title_handicap {
+    margin-top: 20px;
     text-align: center;
 }
 .article_handicap {
@@ -68,6 +69,7 @@ button:active {
 }
 
 #education, #politique, #loisirs, #sport {
+    font-size: 14px;
     /* width: 24%;
     height: 50px; */
     /* background-color: #effbff;

@@ -56,6 +56,7 @@ var app = new Vue({
       this.answers.push(answer);
       this.current++;
       this.reader.handicap = answer.toLowerCase();
+      console.log(this.reader.handicap)
     },
     submitText: function submitText () {
       var answer = this.$refs.textInput.value;
