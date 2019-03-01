@@ -128,7 +128,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 														<button id="education" class="col-lg-3 col-sm-4 col-3" v-on:click="getSubChoices('education')">Education</button>
 														<button id="loisirs" class="col-lg-3 col-sm-4 col-3" v-on:click="getSubChoices('loisirs')">Culture</button>
 														<button id="sport"  class="col-lg-3 col-sm-4 col-3"v-on:click="getSubChoices('sport')">Sports</button>
-														<button class="col-lg-3 col-sm-4 col-3"id="politique" v-on:click="getSubChoices('politique')">Arrondissement</button>
+														<button class="col-lg-3 col-sm-4 col-3"id="politique" v-on:click="getSubChoices('politique')">Administratif</button>
 							
 								  					</div>
 													  <div class="education item" v-for="(item, index) in step.items" v-if="item.type == 'Education'" >
@@ -150,10 +150,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 														<label for="getInputInfo(index, 'name')">{{ item.name }}</label>
 													  </div>
 												</div>
-						
+												<div class="card-header text-white bg-dark" v-if="step.type == 'choice'">	Nous ne pouvons malheureusement pas faire de calculs pour les handicaps psychiques, qui sont actuellement très peu pris en compte dans les problématiques d'accessibilité.</div>
+												
+											
 												
 												<button class="btn btn-lg btn-block next" v-if="step.type == 'text'" v-on:click="submitText()">Prochaine question</button>
-												<button class="btn btn-lg btn-block next" v-if="step.type == 'select'" v-on:click="submitSelect()">Prochaine question</button>
+												<button class="btn btn-lg btn-block next" v-if="step.type == 'select'" v-on:click="submitSelect()">Voir le résultat</button>
 											</div>
 								  
 											<div class="card question" id="map_card" style="display: none;">
@@ -162,10 +164,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 										   </div>
 								  
 											<div class="card question" v-if="current == quiz.length">
-												<h4 class="card-header text-white bg-dark">Bravo {{ reader.name }}, vous avez terminé !</h4>
-												<p class="card-text">Selon nos calculs, le {{ bestOne.num }}ème arrondissement est le plus adapté à votre handicap ({{ reader.handicap }}) et aux établissements dont vous avez le plus besoin (<span v-for="(place, index) in reader.places"><span v-if="index == reader.places.length - 1 && reader.places.length > 1"> et </span>{{ place }}<span v-if="index < reader.places.length - 2">, </span></span>).</p>
-												<p class="card-text" v-if="reader.handicap == 'moteur'">Le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement <span v-if="bestOne.ligne14 == 'NON'">ne bénéficie par contre pas </span><span v-if="bestOne.ligne14 == 'OUI'">bénéficie de plus </span>du passage de la ligne 14, qui est adaptée à votre handicap. Le tram <span v-if="bestOne.tram == 'OUI'">circule dans cet arrondissement.</span><span v-if="bestOne.tram == 'NON'">ne circule pas dans cet arrondissement.</span></p>
-												<button id="startOver" class="btn btn-lg btn-block next" v-on:click="startOver()">Et avec un autre handicap ?</button>
+												<h4 class="card-header text-white bg-dark" v-if="!error">Bravo {{ reader.name }}, vous avez terminé !</h4>
+												<p class="card-text" v-if="error">{{ reader.name }}, merci d'avoir participé. {{ error }}</p>
+												<p class="card-text" v-if="!error">Selon nos calculs, le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement est le plus adapté à votre handicap ({{ reader.handicap }}) et aux établissements dont vous avez le plus besoin (<span v-for="(place, index) in reader.places"><span v-if="index == reader.places.length - 1 && reader.places.length > 1"> et </span>{{ place }}<span v-if="index < reader.places.length - 2">, </span></span>).</p>
+												<p class="card-text" v-if="reader.handicap == 'moteur' && !error">Le {{ bestOne.num }}<span v-if="bestOne.num > 1">ème</span><span v-if="bestOne.num == 1">er</span> arrondissement <span v-if="bestOne.ligne14 == 'NON'">ne bénéficie par contre pas </span><span v-if="bestOne.ligne14 == 'OUI'">bénéficie de plus </span>du passage de la ligne 14, qui est adaptée à votre handicap. Le tram <span v-if="bestOne.tram == 'OUI'">circule dans cet arrondissement.</span><span v-if="bestOne.tram == 'NON'">ne circule pas dans cet arrondissement.</span></p>
+												<button id="startOver" class="btn btn-lg btn-block next" v-on:click="startOver()" v-if="!error">Et avec un autre handicap ?</button>
+												<button id="comeBack" class="btn btn-lg btn-block next" v-on:click="comeBack()" v-if="error">Revenir à l'étape précédente</button>
 											</div>
 								  
 										  </div>

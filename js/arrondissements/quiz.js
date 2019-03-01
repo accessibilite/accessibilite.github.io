@@ -4,9 +4,9 @@ var quiz = [
       type: "text"
     },
     {
-      question: "Par quel type de handicap êtes-vous atteint ?\n (Nous ne pouvons malheureusement pas faire de calculs pour les handicaps psychiques, qui sont actuellement très peu pris en compte dans les problématiques d'accessibilité).",
+      question: "Par quel type de handicap êtes-vous atteint ?",
       type: "choice",
-      choices: ["Moteur", "Auditif", "Visuel"],
+      choices: ["Moteur", "Auditif", "Visuel", "Handicaps multiples"],
     },
     {
       question: "De quoi avez-vous besoin ?",

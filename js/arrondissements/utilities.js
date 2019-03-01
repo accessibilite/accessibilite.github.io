@@ -14,19 +14,36 @@ function calculateBestOne(answers) {
 
     for (var i = 0; i < data_access.length; i++) {
         if (places_needed.indexOf(replaceSpec(data_access[i]["Type"])) >= 0){
-          let for_user = data_access[i][replaceSpec(handicap)];
           let num_arr = Number(data_access[i]["Arrondissement"]);
           let type = data_access[i]["Type"];
-          score[num_arr - 1] = score[num_arr - 1] + for_user["0"] * 0.1 + for_user["1"] * 2 + for_user["2"] * 3 + for_user["3"] * 4 + for_user["4"] * 4.5;
-
+          if (handicap == "Handicaps multiples"){
+            score = calculateScore("Moteur", score, num_arr, i);
+            console.log(score);
+            score = calculateScore("Auditif", score, num_arr, i);
+            console.log(score);
+            score = calculateScore("Visuel", score, num_arr, i);
+            console.log(score);
+          }
+          else {
+            score = calculateScore(handicap, score, num_arr, i)
+          }
           if (score[num_arr - 1] > score_best) {
             score_best = score[num_arr - 1];
             info_best[type] = []
-            info_best[type].type3 = for_user["3"];
-            info_best[type].type4 = for_user["4"];
+            if (handicap != "Handicaps multiples"){
+              let for_user = data_access[i][replaceSpec(handicap)];
+              info_best[type].type3 = for_user["3"];
+              info_best[type].type4 = for_user["4"];
+            }
           }
         }
         
     }
     return([score, info_best])
+}
+
+function calculateScore(handicap, score, num_arr, i){
+  let for_user = data_access[i][replaceSpec(handicap)];
+  score[num_arr - 1] = score[num_arr - 1] + for_user["0"] * 0.1 + for_user["1"] * 2 + for_user["2"] * 3 + for_user["3"] * 4 + for_user["4"] * 4.5;
+  return(score)
 }

@@ -22,7 +22,8 @@ var app = new Vue({
     answers: [],
     reader: [],
     bestOne: [],
-    score: null
+    score: null,
+    error:null
   },
   computed: {
     step: function step () {
@@ -80,7 +81,11 @@ var app = new Vue({
         }
         this.answers.push(checked);
         this.current++;
-        if (this.current == this.quiz.length){
+        console.log(checked.length)
+        if (checked.length == 0 && this.current == this.quiz.length) {
+          this.error = "Mais nous aurions besoin que vous renseigniez au moins un lieu dont vous avez besoin. Sans cette indication, difficile pour nous de déterminer quel arrondissement correspond le mieux à vos besoins."
+        }
+        else if (this.current == this.quiz.length){
           var results = calculateBestOne(this.answers);
           var tab = results[0]
           var map = document.getElementById("map")
@@ -115,6 +120,21 @@ var app = new Vue({
       this.bestOne = [];
       this.score = null;
       return this.quiz[1]
+      
+    },
+    comeBack(){
+      console.log("here6")
+      let name = this.answers[0];
+      let handicap = this.answers[1];
+      this.current = 2;
+      this.answers = [name, handicap];
+      this.reader = [];
+      this.error = null
+      this.reader.name = name;
+      this.reader.handicap = handicap;
+      this.bestOne = [];
+      this.score = null;
+      return this.quiz[2]
       
     }
   }
